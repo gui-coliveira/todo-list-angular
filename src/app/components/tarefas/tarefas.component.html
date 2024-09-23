@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-title>Lista de Tarefas</mat-card-title>
+    <mat-form-field appearance="fill">
+        <mat-label>Nova Tarefa</mat-label>
+        <input matInput [(ngModel)]="novaTarefa">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="adicionarTarefa()">Adicionar</button>
+
+    <mat-list>
+        <mat-list-item *ngFor="let tarefa of tarefas">
+            <mat-checkbox [(ngModel)]="tarefa.concluida">{{ tarefa.descricao }}</mat-checkbox>
+            <button mat-icon-button (click)="removerTarefa(tarefa.id!)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-list-item>
+    </mat-list>
+</mat-card>
